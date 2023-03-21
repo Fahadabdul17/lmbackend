@@ -1,4 +1,4 @@
-module github.com/Fahadabdulazizz/ws/A/1214030/backend
+module github.com/Fahadabdulazizz/lmbackend
 
 go 1.20
 
