@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"os"
 
-	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
@@ -49,28 +48,4 @@ func InsertProfile(db string, profile Profile) (insertedID interface{}) {
 		fmt.Printf("InsertProfile: %v\n", err)
 	}
 	return insertResult.InsertedID
-}
-
-func GetDataCompFromStatus(status string, db *mongo.Database, col string) (data DataAkreditas) {
-	user := db.Collection(col)
-	filter :=bson.M{"status": status}
-	err := user.FindOne(context.TODO(), filter).Decode(&data)
-	if err != nil {
-		fmt.Printf("getDataAkreditas: %v\n", err)
-	}
-	return data
-}
-
-func GetDataAllbyStats(stats string, db *mongo.Database, col string) (data []DataAkreditas) {
-	user := db.Collection(col)
-	filter := bson.M{"status": stats}
-	cursor, err := user.Find(context.TODO(), filter)
-	if err != nil {
-		fmt.Println("GetALLData :", err)
-	}
-	err = cursor.All(context.TODO(), &data)
-	if err != nil {
-		fmt.Println(err)
-	}
-	return
 }

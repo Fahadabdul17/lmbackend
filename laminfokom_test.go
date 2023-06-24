@@ -8,12 +8,12 @@ import (
 
 func TestInsertDataAkreditas(t *testing.T) {
 	dbname := "infokomdb"
-	dataakreditas:= DataAkreditas{
-		ID:      primitive.NewObjectID(),
-		Perguruan_Tinggi:    "ULBI",
-		Program_studi:   "Teknik Informatika",
-		Peringkat: "B",
-		Status: "Masih Berlaku",
+	dataakreditas := DataAkreditas{
+		ID:               primitive.NewObjectID(),
+		Perguruan_Tinggi: "ULBI",
+		Program_studi:    "Teknik Informatika",
+		Peringkat:        "B",
+		Status:           "Masih Berlaku",
 	}
 	insertedID := InsertDataAkreditas(dbname, dataakreditas)
 	if insertedID == nil {
@@ -24,9 +24,9 @@ func TestInsertDataAkreditas(t *testing.T) {
 func TestInsertDataProgramStudi(t *testing.T) {
 	dbname := "infokomdb"
 	dataprogramstudi := DataProgramStudi{
-		ID:       primitive.NewObjectID(),
+		ID:            primitive.NewObjectID(),
 		Program_studi: "Teknik Informatika",
-		Program:  "Sarjana Terapan",
+		Program:       "Sarjana Terapan",
 	}
 	insertedID := InsertDataProgramStudi(dbname, dataprogramstudi)
 	if insertedID == nil {
@@ -34,11 +34,10 @@ func TestInsertDataProgramStudi(t *testing.T) {
 	}
 }
 
-
 func TestInsertProfile(t *testing.T) {
 	dbname := "infokomdb"
 	profile := Profile{
-		ID:     primitive.NewObjectID(),
+		ID:       primitive.NewObjectID(),
 		Isi_satu: "kampus merdeka",
 	}
 	insertedID := InsertProfile(dbname, profile)
